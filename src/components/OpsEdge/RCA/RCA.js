@@ -53,11 +53,10 @@ export default function RCA() {
 
           return {
             ...item,
-            "rca id": fullId,
-            "anomaly id": item.anomalyId,
-            "Date & Time": item.dateTime,
-            "Notifications": item.notificationStatus,
-            "Equipment Name": item.equipmentName || "N/A" 
+            "RCA REF": fullId,
+            "ANO REF": item.anomalyId,
+            "TIMESTAMP": item.dateTime,
+            "NOTIF STATUS": item.notificationStatus,
           };
         });
         
@@ -242,7 +241,7 @@ export default function RCA() {
     //   setLoading(false);
     // }
 
-    const rawId = row.rcaId || row["rca id"];
+    const rawId = row.rcaId || row["RCA REF"] || row["RCA ID"] || row["rca id"];
     
     setLoading(true);
     router.push(`/opsedge/view_rca?rcaId=${rawId}`);
@@ -308,7 +307,7 @@ export default function RCA() {
             <Table
               tableData={rcaList.notificationStatus}
               redirectTo={openDetailsModal}
-              labels={["rca id", "anomaly id","Equipment Name", "Date & Time","Notifications"]}
+              labels={["RCA REF", "ANO REF", "TIMESTAMP", "NOTIF STATUS"]}
               visibleRows={10}
             />
           )}
