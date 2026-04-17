@@ -1269,14 +1269,14 @@
               }
             },
             "process_description": "Boiler generates high-pressure steam by burning fuel in the furnace. The steam is used across the plant for heating, evaporation, and power requirements.",
-            "Boiler_Kpi": {
-              "relationship": "HAS_KPI",
-              "Boiler_KPI": {
-                "relationship": "HAS_DOCUMENT_KPI",
-                "path": "s3://eid-data-2026/knowledgebase/KPI_boiler.txt",
-                "document_description": "Contains overall distillery operational procedures and process flow. Includes yeast propagation, fermentation, and stabilization steps. Focuses on maintaining product quality and process consistency."
-              }
-            }
+            "Boiler_Kpi":{
+                "relationship": "HAS_KPI",
+                "Boiler_KPI": {
+                 "relationship": "HAS_DOCUMENT_KPI",
+                 "path": "s3://eid-data-2026/knowledgebase/KPI_boiler.txt",
+                 "document_description": "Contains overall distillery operational procedures and process flow. Includes yeast propagation, fermentation, and stabilization steps. Focuses on maintaining product quality and process consistency."
+               }
+            } 
           }
         }
       }

@@ -35,7 +35,9 @@ const parseHierarchyToGraph = (data) => {
     "HAS_UNIT": 3,
     "HAS_PARAMETER": 4,
     "HAS_TAG": 5,
-    "HAS_DOCUMENT": 6
+    "HAS_DOCUMENT": 6,
+    "HAS_KPI": 6,
+    "HAS_DOCUMENT_KPI": 7
   };
 
   const traverse = (name, obj, parentId = null, level = 0) => {
@@ -69,11 +71,27 @@ const parseHierarchyToGraph = (data) => {
       links.push({ source: parentId, target: nodeId, label: obj.relationship || "CONTAINS" });
     }
 
+    // 1. Process explicit children
     if (obj.children) {
       Object.entries(obj.children).forEach(([childName, childObj]) => {
         traverse(childName, childObj, nodeId, level + 1);
       });
     }
+
+    // 2. Process all other keys that look like nodes (objects with a relationship or just non-metadata objects)
+    const reservedKeys = new Set([
+      'children', 'relationship', 'tag_id', 'tag_description', 
+      'min_value', 'max_value', 'unit', 'unit_description', 
+      'process_description', 'document_description', 'path', 'details',
+      'id', 'x', 'y', 'level', 'type', 'radius', 'details'
+    ]);
+
+    Object.entries(obj).forEach(([key, value]) => {
+      if (!reservedKeys.has(key) && typeof value === 'object' && value !== null && !Array.isArray(value)) {
+        // If it's an object and not a reserved key, treat it as a potential child
+        traverse(key, value, nodeId, level + 1);
+      }
+    });
   };
 
   Object.entries(data).forEach(([rootName, rootObj]) => {

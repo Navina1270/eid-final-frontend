@@ -55,7 +55,7 @@ const GroupNodeComp = ({ data }) => (
    PROCESS NODES
 -------------------------------------------------------------------*/
 const steps = [
-  // === Section Groups ===
+  // Section Groups
   {
     id: "group_distillation",
     label: "Primary Distillation Section",
@@ -81,7 +81,7 @@ const steps = [
     data: { bgColor: "rgba(254, 243, 199, 0.4)" },
   },
 
-  // === Left Column: Feed Section ===
+  // Feed Section
   {
     id: "molasses_day_tank",
     label: "Molasses day tank",
@@ -101,14 +101,13 @@ const steps = [
     type: "processNode",
   },
 
-  // DISTILLATION VERTICAL STACK
+  // Distillation Section
   {
     id: "degassifier",
     label: "DeGassifier column",
     position: { x: 35, y: 20 },
     parentId: "group_distillation",
     type: "processNode",
-    extent: 'parent',
   },
   {
     id: "analyser",
@@ -116,7 +115,6 @@ const steps = [
     position: { x: 35, y: 190 },
     parentId: "group_distillation",
     type: "processNode",
-    extent: 'parent',
   },
   {
     id: "prerectifier",
@@ -124,7 +122,6 @@ const steps = [
     position: { x: 35, y: 360 },
     parentId: "group_distillation",
     type: "processNode",
-    extent: 'parent',
   },
   {
     id: "extractive_distillation",
@@ -132,7 +129,6 @@ const steps = [
     position: { x: 35, y: 530 },
     parentId: "group_distillation",
     type: "processNode",
-    extent: 'parent',
   },
   {
     id: "rectifier",
@@ -140,7 +136,6 @@ const steps = [
     position: { x: 35, y: 700 },
     parentId: "group_distillation",
     type: "processNode",
-    extent: 'parent',
   },
   {
     id: "label_rectified",
@@ -148,18 +143,16 @@ const steps = [
     position: { x: 45, y: 850 },
     parentId: "group_distillation",
     type: "labelNode",
-    extent: 'parent',
-    data: { transparent: true }
+    data: { transparent: false }
   },
 
-  // ENA VERTICAL STACK
+  // ENA Section
   {
     id: "recovery",
     label: "Recovery Column",
     position: { x: 35, y: 20 },
     parentId: "group_ena",
     type: "processNode",
-    extent: 'parent',
   },
   {
     id: "simmering",
@@ -167,7 +160,6 @@ const steps = [
     position: { x: 35, y: 190 },
     parentId: "group_ena",
     type: "processNode",
-    extent: 'parent',
   },
   {
     id: "label_ena",
@@ -175,18 +167,16 @@ const steps = [
     position: { x: 25, y: 320 },
     parentId: "group_ena",
     type: "labelNode",
-    extent: 'parent',
-    data: { transparent: true }
+    data: { transparent: false }
   },
 
-  // ANHYDROUS VERTICAL STACK
+  // Anhydrous Section
   {
     id: "evaporator",
     label: "Evaporator Column",
     position: { x: 35, y: 20 },
     parentId: "group_anhydrous",
     type: "processNode",
-    extent: 'parent',
   },
   {
     id: "msdh",
@@ -194,7 +184,6 @@ const steps = [
     position: { x: 35, y: 190 },
     parentId: "group_anhydrous",
     type: "processNode",
-    extent: 'parent',
   },
   {
     id: "label_anhydrous",
@@ -202,11 +191,10 @@ const steps = [
     position: { x: 25, y: 320 },
     parentId: "group_anhydrous",
     type: "labelNode",
-    extent: 'parent',
-    data: { transparent: true }
+    data: { transparent: false }
   },
 
-  // === Boiler Node ===
+  // Boiler
   {
     id: "boiler",
     label: "Boiler",
@@ -214,7 +202,7 @@ const steps = [
     type: "boilerNode",
   },
 
-  // === Hidden Manifold Junctions for Steam System ===
+  // Junctions
   { id: "j_dist_bottom", position: { x: 350, y: 950 }, type: "junctionNode" },
   { id: "j_dist_riser", position: { x: 350, y: 150 }, type: "junctionNode" },
   { id: "j_ena_bottom", position: { x: 720, y: 950 }, type: "junctionNode" },
@@ -239,11 +227,11 @@ const orangeArrow = {
 };
 
 const edges = [
-  // ── Feed Section ──
-  { id: "e-mol-pre", source: "molasses_day_tank", target: "pre_fermenters", type: "smoothstep", ...blueArrow },
-  { id: "e-pre-ferm", source: "pre_fermenters", target: "fermenters", type: "smoothstep", ...blueArrow },
+  // Feed
+  { id: "e-mol-pre", source: "molasses_day_tank", sourceHandle: "bottom", target: "pre_fermenters", targetHandle: "top", type: "straight", ...blueArrow },
+  { id: "e-pre-ferm", source: "pre_fermenters", sourceHandle: "bottom", target: "fermenters", targetHandle: "top", type: "straight", ...blueArrow },
   
-  // Precision Right -> Top Routing to match Image 5
+  // Feed to Dist
   {
     id: "e-ferm-deg",
     source: "fermenters",
@@ -254,14 +242,14 @@ const edges = [
     ...blueArrow,
   },
 
-  // Distillation Stack (Vertical - explicit handles)
+  // Dist Stack
   { id: "e-deg-anal", source: "degassifier", sourceHandle: "bottom", target: "analyser", targetHandle: "top", type: "straight", ...blueArrow },
   { id: "e-anal-prerect", source: "analyser", sourceHandle: "bottom", target: "prerectifier", targetHandle: "top", type: "straight", ...blueArrow },
   { id: "e-prerect-ext", source: "prerectifier", sourceHandle: "bottom", target: "extractive_distillation", targetHandle: "top", type: "straight", ...blueArrow },
   { id: "e-ext-rect", source: "extractive_distillation", sourceHandle: "bottom", target: "rectifier", targetHandle: "top", type: "straight", ...blueArrow },
   { id: "e-rect-label", source: "rectifier", sourceHandle: "bottom", target: "label_rectified", targetHandle: "top", type: "straight", ...blueArrow },
 
-  // Precision Right -> Top Routing for ENA
+  // ENA Stack
   {
     id: "e-anal-recovery",
     source: "rectifier",
@@ -274,7 +262,7 @@ const edges = [
   { id: "e-recovery-simm", source: "recovery", sourceHandle: "bottom", target: "simmering", targetHandle: "top", type: "straight", ...blueArrow },
   { id: "e-simm-label", source: "simmering", sourceHandle: "bottom", target: "label_ena", targetHandle: "top", type: "straight", ...blueArrow },
 
-  // Precision Right -> Top Routing for Anhydrous
+  // Anhydrous Stack
   {
     id: "e-simm-evap",
     source: "simmering",
@@ -287,13 +275,12 @@ const edges = [
   { id: "e-evap-msdh", source: "evaporator", sourceHandle: "bottom", target: "msdh", targetHandle: "top", type: "straight", ...blueArrow },
   { id: "e-msdh-label", source: "msdh", sourceHandle: "bottom", target: "label_anhydrous", targetHandle: "top", type: "straight", ...blueArrow },
 
-  // ── MANIFOLD STEAM SYSTEM (Orange) ──
-  // Continuous manifold: Boiler -> Dist -> ENA -> Anhydrous
+  // Steam
   { id: "s-boiler-j-dist", source: "boiler", sourceHandle: "left", target: "j_dist_bottom", targetHandle: "r_in", type: "smoothstep", ...orangeArrow, animated: false },
   { id: "s-j-dist-ena", source: "j_dist_bottom", sourceHandle: "r_out", target: "j_ena_bottom", targetHandle: "l_in", type: "smoothstep", ...orangeArrow, animated: false },
   { id: "s-j-ena-anh", source: "j_ena_bottom", sourceHandle: "r_out", target: "j_anh_bottom", targetHandle: "l_in", type: "smoothstep", ...orangeArrow, animated: false },
 
-  // Distillation Riser and Branches
+  // Dist Riser
   { id: "s-dist-riser", source: "j_dist_bottom", sourceHandle: "t_out", target: "j_dist_riser", targetHandle: "b_in", type: "smoothstep", ...orangeArrow },
   { id: "s-riser-ferm", source: "j_dist_bottom", sourceHandle: "t_out", target: "fermenters", targetHandle: "orange_left", type: "smoothstep", ...orangeArrow },
   { id: "s-riser-deg", source: "j_dist_riser", sourceHandle: "r_out", target: "degassifier", targetHandle: "orange_left", type: "smoothstep", ...orangeArrow },
@@ -302,13 +289,13 @@ const edges = [
   { id: "s-riser-ext", source: "j_dist_riser", sourceHandle: "r_out", target: "extractive_distillation", targetHandle: "orange_left", type: "smoothstep", ...orangeArrow },
   { id: "s-riser-rect", source: "j_dist_riser", sourceHandle: "r_out", target: "rectifier", targetHandle: "orange_left", type: "smoothstep", ...orangeArrow },
 
-  // ENA Riser and Branches
+  // ENA Riser
   { id: "s-ena-riser", source: "j_ena_bottom", sourceHandle: "t_out", target: "j_ena_riser", targetHandle: "b_in", type: "smoothstep", ...orangeArrow },
   { id: "s-riser-rec", source: "j_ena_riser", sourceHandle: "r_out", target: "recovery", targetHandle: "orange_left", type: "smoothstep", ...orangeArrow },
   { id: "s-riser-simm", source: "j_ena_riser", sourceHandle: "r_out", target: "simmering", targetHandle: "orange_left", type: "smoothstep", ...orangeArrow },
   { id: "s-riser-ena-boiler", source: "j_ena_riser", sourceHandle: "b_out", target: "boiler", targetHandle: "top", type: "smoothstep", ...orangeArrow },
 
-  // Anhydrous riser and branch
+  // Anhydrous Riser
   { id: "s-anh-riser", source: "j_anh_bottom", sourceHandle: "t_out", target: "j_anh_riser", targetHandle: "b_in", type: "smoothstep", ...orangeArrow },
   { id: "s-riser-evap", source: "j_anh_riser", sourceHandle: "r_out", target: "evaporator", targetHandle: "orange_left", type: "smoothstep", ...orangeArrow },
   { id: "s-riser-msdh", source: "j_anh_riser", sourceHandle: "r_out", target: "msdh", targetHandle: "orange_left", type: "smoothstep", ...orangeArrow },
@@ -323,12 +310,14 @@ const ProcessNodeComp = ({ data }) => {
     "DeGassifier column": "DeGassifier Column",
     "Analyser column": "Analyser Column",
     "PreRectifier column": "PreRectifier Column",
-    "Extractive distillation Column": "Extractive Distillation Column",
+    "Extractive distillation Column": "Extractive Distillation Column_cleanup",
     "Rectifier Column": "Rectifier Column",
     "Recovery Column": "Recovery Column",
     "Simmering Column": "Simmering Column",
     "Evaporator Column": "Evaporator Column",
     "MSDH column": "MSDH Column",
+    "Pre fermenters": "Pre Fermenters",
+    "Pre Fermenters": "Pre Fermenters",
   };
   const name = mapping[data.label] || data.label;
   const imagePath = `/images/${name}.png`;
@@ -349,31 +338,22 @@ const ProcessNodeComp = ({ data }) => {
         boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
         cursor: data.clickable ? "pointer" : "default",
         transition: "all 0.3s cubic-bezier(0.23, 1, 0.32, 1)",
-        position: 'relative'
+        position: "relative"
       }}
-      className="process-node-hover"
       onClick={data.onClick}
     >
-      <style>{`
-        .process-node-hover:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-          border-color: #3b82f6;
-        }
-      `}</style>
-
-      <Handle type="source" position={Position.Right} id="right" style={{ background: "#3b82f6", width: 8, height: 8, border: '2px solid white' }} />
-      <Handle type="source" position={Position.Bottom} id="bottom" style={{ background: "#3b82f6", width: 8, height: 8, border: '2px solid white' }} />
-      <Handle type="target" position={Position.Left} id="left" style={{ background: "#3b82f6", width: 8, height: 8, border: '2px solid white' }} />
-      <Handle type="target" position={Position.Top} id="top" style={{ background: "#f97316", width: 8, height: 8, border: '2px solid white' }} />
-      <Handle type="target" position={Position.Left} id="orange_left" style={{ background: "#f97316", top: "75%", width: 8, height: 8, border: '2px solid white' }} />
+      <Handle type="source" position={Position.Right} id="right" style={{ background: "#3b82f6", width: 8, height: 8, border: "2px solid white" }} />
+      <Handle type="source" position={Position.Bottom} id="bottom" style={{ background: "#3b82f6", width: 8, height: 8, border: "2px solid white" }} />
+      <Handle type="target" position={Position.Left} id="left" style={{ background: "#3b82f6", width: 8, height: 8, border: "2px solid white" }} />
+      <Handle type="target" position={Position.Top} id="top" style={{ background: "#f97316", width: 8, height: 8, border: "2px solid white" }} />
+      <Handle type="target" position={Position.Left} id="orange_left" style={{ background: "#f97316", top: "75%", width: 8, height: 8, border: "2px solid white" }} />
 
       <div style={{
         width: "100%",
         height: "90px",
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
         marginBottom: "12px",
       }}>
         <img
@@ -396,7 +376,7 @@ const ProcessNodeComp = ({ data }) => {
           textAlign: "center",
           lineHeight: 1.3,
           fontFamily: "'Inter', sans-serif",
-          letterSpacing: '-0.01em'
+          letterSpacing: "-0.01em"
         }}
       >
         {data.label}
@@ -424,29 +404,13 @@ const BoilerNodeComp = ({ data }) => (
       gap: 16,
       border: "3px solid #3b82f6",
       boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.25)",
-      position: 'relative'
+      position: "relative"
     }}
-    className="boiler-node-pulse"
     onClick={data.onClick}
   >
-    <style>{`
-      @keyframes pulse-border {
-        0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
-        70% { box-shadow: 0 0 0 15px rgba(59, 130, 246, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
-      }
-      .boiler-node-pulse:hover {
-        transform: translateY(-10px) scale(1.03);
-        box-shadow: 0 30px 60px -12px rgba(59, 130, 246, 0.35);
-      }
-      .boiler-node-pulse {
-        animation: pulse-border 2s infinite;
-      }
-    `}</style>
-
-    <Handle type="source" position={Position.Top} id="top" style={{ background: "#f97316", width: 12, height: 12, border: '2px solid white' }} />
-    <Handle type="source" position={Position.Right} id="right" style={{ background: "#f97316", width: 12, height: 12, border: '2px solid white' }} />
-    <Handle type="source" position={Position.Left} id="left" style={{ background: "#f97316", width: 12, height: 12, border: '2px solid white' }} />
+    <Handle type="source" position={Position.Top} id="top" style={{ background: "#f97316", width: 12, height: 12, border: "2px solid white" }} />
+    <Handle type="source" position={Position.Right} id="right" style={{ background: "#f97316", width: 12, height: 12, border: "2px solid white" }} />
+    <Handle type="source" position={Position.Left} id="left" style={{ background: "#f97316", width: 12, height: 12, border: "2px solid white" }} />
 
     <img
       src="/images/Boiler.png"
@@ -468,7 +432,7 @@ const BoilerNodeComp = ({ data }) => (
     >
       {data.label}
     </div>
-    <div style={{ fontSize: 10, color: '#3b82f6', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Main Process Unit</div>
+    <div style={{ fontSize: 10, color: "#3b82f6", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em" }}>Main Process Unit</div>
   </div>
 );
 
@@ -479,29 +443,16 @@ const LabelNodeComp = ({ data }) => (
   <div
     onClick={data.onClick}
     style={{
-      background: data.transparent ? "transparent" : "rgba(255, 255, 255, 0.9)",
-      border: data.transparent ? "none" : "1px solid #e2e8f0",
-      padding: data.transparent ? "0" : "6px 12px",
-      borderRadius: "8px",
+      background: data.transparent ? "transparent" : "rgba(255, 255, 255, 1)",
+      border: data.transparent ? "none" : "2px solid #2563eb",
+      padding: data.transparent ? "0" : "8px 16px",
+      borderRadius: "12px",
       color: "#2563eb",
-      fontSize: "12px",
-      fontWeight: data.transparent ? "800" : "700",
+      fontSize: "14px",
+      fontWeight: "800",
       whiteSpace: "nowrap",
       cursor: data.clickable ? "pointer" : "default",
-      boxShadow: data.transparent ? "none" : "0 2px 4px rgba(0,0,0,0.05)",
       transition: "all 0.2s ease",
-    }}
-    onMouseEnter={(e) => {
-      if (data.clickable) {
-        e.currentTarget.style.transform = "translateY(-2px)";
-        e.currentTarget.style.backgroundColor = "#eff6ff";
-      }
-    }}
-    onMouseLeave={(e) => {
-      if (data.clickable) {
-        e.currentTarget.style.transform = "translateY(0)";
-        e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.9)";
-      }
     }}
   >
     <Handle type="target" position={Position.Top} id="top" style={{ background: "#4a9eff" }} />
@@ -514,7 +465,7 @@ const LabelNodeComp = ({ data }) => (
    CUSTOM NODE: JUNCTION NODE (Hidden manifold anchor points)
 -------------------------------------------------------------------*/
 const JunctionNodeComp = () => (
-    <div style={{ width: 6, height: 6, background: '#f97316', borderRadius: '50%', border: '2px solid white', boxShadow: '0 0 10px rgba(249, 115, 22, 0.4)' }}>
+    <div style={{ width: 6, height: 6, background: "#f97316", borderRadius: "50%", border: "2px solid white", boxShadow: "0 0 10px rgba(249, 115, 22, 0.4)" }}>
         <Handle type="target" position={Position.Top} id="t_in" style={{ opacity: 0 }} />
         <Handle type="target" position={Position.Bottom} id="b_in" style={{ opacity: 0 }} />
         <Handle type="target" position={Position.Left} id="l_in" style={{ opacity: 0 }} />
