@@ -1,0 +1,1285 @@
+{
+  "Plants": {
+    "relationship": "ROOT",
+    "children": {
+      "Plant1(DNEM)": {
+        "relationship": "HAS_PLANT",
+        "children": {}
+      },
+      "Plant2(DSIV)": {
+        "relationship": "HAS_PLANT",
+        "children": {}
+      },
+      "Plant3(DHUL)": {
+        "relationship": "HAS_PLANT",
+        "children": {}
+      },
+      "Plant4(DHAL)": {
+        "relationship": "HAS_PLANT",
+        "children": {}
+      },
+      "Plant5(DNKM)": {
+        "relationship": "HAS_PLANT",
+        "children": {}
+      },
+      "Plant6(DBAG)": {
+        "relationship": "HAS_PLANT",
+        "children": {
+          "DBAG_Fermentation": {
+            "relationship": "HAS_PROCESS",
+            "children": {
+              "DBAG_Molasses day Tank": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Day_Molasses_tank_temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI130101",
+                    "tag_description": "Temperature of molasses in day tank before fermentation"
+                  },
+                  "Molasses_flow_to_Day_tank": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "m3/hr",
+                    "tag_id": "MF130101_F",
+                    "tag_description": "Flow rate of molasses transferred to day tank"
+                  }
+                },
+                "unit_description": "Tank stores and stabilizes process fluids before further use. It helps maintain steady flow and operational buffering."
+              },
+              "DBAG_Syrup System": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Syrup_flow_from_sugar_plant": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "m3/hr",
+                    "tag_id": "MF130801_F",
+                    "tag_description": "Flow rate of syrup received from sugar plant"
+                  },
+                  "Syrup_flow_temperature_to_fermenter": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI130801",
+                    "tag_description": "Temperature of syrup entering fermenter"
+                  }
+                },
+                "unit_description": "DBAG_Syrup System performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_Culture Vessel": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "CV1_temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI130201",
+                    "tag_description": "Temperature of culture vessel 1 for yeast propagation"
+                  },
+                  "CV2_temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI130202",
+                    "tag_description": "Temperature of culture vessel 2 for yeast propagation"
+                  },
+                  "CV3_temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI130203",
+                    "tag_description": "Temperature of culture vessel 3 for yeast propagation"
+                  }
+                },
+                "unit_description": "DBAG_Culture Vessel performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_Pre Fermenter A": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "PFA__Molasses_flow": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "m3/hr",
+                    "tag_id": "FI130301",
+                    "tag_description": "Molasses feed flow to pre-fermenter A"
+                  },
+                  "PFA__Temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI130301",
+                    "tag_description": "Temperature inside pre-fermenter A"
+                  }
+                },
+                "unit_description": "DBAG_Pre Fermenter A performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_Pre Fermenter B": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "PFB__Molasses_flow": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "m3/hr",
+                    "tag_id": "FI130302",
+                    "tag_description": "Molasses feed flow to pre-fermenter B"
+                  },
+                  "PFB__Temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI130302",
+                    "tag_description": "Temperature inside pre-fermenter B"
+                  }
+                },
+                "unit_description": "DBAG_Pre Fermenter B performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_Fermenter-1": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Fermenter_1_Molasses_flow": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "m3/hr",
+                    "tag_id": "FI130401",
+                    "tag_description": "Molasses feed flow to fermenter 1"
+                  },
+                  "Fermenter_1_Temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI130401",
+                    "tag_description": "Temperature inside fermenter 1"
+                  }
+                },
+                "unit_description": "DBAG_Fermenter-1 performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_Fermenter-2": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Fermenter_2_Molasses_flow": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "m3/hr",
+                    "tag_id": "FI130402",
+                    "tag_description": "Molasses feed flow to fermenter 2"
+                  },
+                  "Fermenter_2_Temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI130402",
+                    "tag_description": "Temperature inside fermenter 2"
+                  }
+                },
+                "unit_description": "DBAG_Fermenter-2 performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_Fermenter-3": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Fermenter_3_Molasses_flow": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "m3/hr",
+                    "tag_id": "FI130501",
+                    "tag_description": "Molasses feed flow to fermenter 3"
+                  },
+                  "Fermenter_3_Temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI130501",
+                    "tag_description": "Temperature inside fermenter 3"
+                  }
+                },
+                "unit_description": "DBAG_Fermenter-3 performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_Fermenter-4": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Fermenter_4_Molasses_flow": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "m3/hr",
+                    "tag_id": "FI130502",
+                    "tag_description": "Molasses feed flow to fermenter 4"
+                  },
+                  "Fermenter_4_Temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI130502",
+                    "tag_description": "Temperature inside fermenter 4"
+                  }
+                },
+                "unit_description": "DBAG_Fermenter-4 performs a specific role in maintaining process conditions and operational stability."
+              },
+              "01_Fermenter_C_Molasses": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/01_Fermenter -C-Molasses.docx",
+                "document_description": "Procedure for operating fermenter using molasses as feedstock, including charging, fermentation control, and monitoring."
+              },
+              "01_Fermenter_Syrup": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/01_Fermenter -Syrup.docx",
+                "document_description": "Procedure for fermentation using syrup feed, covering preparation, feeding, and process control."
+              },
+              "02_stopping_new_fermentor": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/02_stopping new fermentor.docx",
+                "document_description": "Guidelines for safely stopping and handling a newly commissioned fermenter."
+              },
+              "06_Yeast_propagation": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/06_Yeast propagation.docx",
+                "document_description": "Procedure for yeast culture development and propagation before fermentation."
+              },
+              "11_Air_Filter_SOP": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/11_Air Filter_SOP.docx",
+                "document_description": "SOP for maintaining sterile air supply to fermentation systems."
+              },
+              "EID_Ferm_Opr_Man_FN": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/EID. Ferm.Opr.Man.(FN).txt",
+                "document_description": "Detailed manual covering fermentation operation, parameters, and troubleshooting."
+              },
+              "Distillery_Process": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/Distillery Process.txt",
+                "document_description": "Contains overall distillery operational procedures and process flow. Includes yeast propagation, fermentation, and stabilization steps. Focuses on maintaining product quality and process consistency."
+              }
+            },
+            "process_description": "Fermentation converts sugars from molasses or syrup into alcohol using yeast. Temperature and flow are controlled to maximize yield and maintain stable biological activity."
+          },
+          "DBAG_MSDH": {
+            "relationship": "HAS_PROCESS",
+            "children": {
+              "DBAG_Evaporator Column": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Rectified_Spirit_feed_flow": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "m3/hr",
+                    "tag_id": "FIC160102",
+                    "tag_description": "Flow rate of rectified spirit entering evaporator column"
+                  },
+                  "Evaporator_Column_top_Temp": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI160105",
+                    "tag_description": "Temperature at top of evaporator column"
+                  },
+                  "Evaporator_Column_top_pressure": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "kg/cm2",
+                    "tag_id": "PIC160201",
+                    "tag_description": "Pressure at top of evaporator column"
+                  }
+                },
+                "unit_description": "Column enables phase separation using temperature and pressure differences. It supports purification and product quality control."
+              },
+              "DBAG_Molecular Sieve bed - A": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Molecular_Sieve_Bed_top_pressure_A": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "kg/cm2",
+                    "tag_id": "PIC160202",
+                    "tag_description": "Pressure at top of molecular sieve bed A"
+                  },
+                  "Molecular_Sieve_Bed_top_Temp_A": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI160202",
+                    "tag_description": "Temperature at top of molecular sieve bed A"
+                  }
+                },
+                "unit_description": "DBAG_Molecular Sieve bed - A performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_Molecular Sieve bed - B": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Molecular_Sieve_Bed_top_pressure_B": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "kg/cm2",
+                    "tag_id": "PI160204",
+                    "tag_description": "Pressure at top of molecular sieve bed B"
+                  },
+                  "Molecular_Sieve_Bed_top_Temp_B": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI160206",
+                    "tag_description": "Temperature at top of molecular sieve bed B"
+                  }
+                },
+                "unit_description": "DBAG_Molecular Sieve bed - B performs a specific role in maintaining process conditions and operational stability."
+              },
+              "EID_MSDH_Opr_Man_FN": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/EID.MSDH.Opr.Man.(FN).txt",
+                "document_description": "Operation manual for molecular sieve dehydration system including drying cycles and switching."
+              },
+              "Distillery_Process": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/Distillery Process.txt",
+                "document_description": "Contains overall distillery operational procedures and process flow. Includes yeast propagation, fermentation, and stabilization steps. Focuses on maintaining product quality and process consistency."
+              }
+            },
+            "process_description": "MSDH removes residual water from ethanol using molecular sieve beds. This produces anhydrous ethanol suitable for fuel blending."
+          },
+          "DBAG_Evaporator": {
+            "relationship": "HAS_PROCESS",
+            "children": {
+              "DBAG_Feed tank": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Feed_flow_to_Evaporator": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "m3/hr",
+                    "tag_id": "FIC150101",
+                    "tag_description": "Feed flow rate of spent wash to evaporator"
+                  },
+                  "Feed_spent_wash_temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI150102",
+                    "tag_description": "Temperature of spent wash entering evaporator"
+                  }
+                },
+                "unit_description": "Tank stores and stabilizes process fluids before further use. It helps maintain steady flow and operational buffering."
+              },
+              "DBAG_Falling Film Evaporator-1": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "FFE_1_VLS_level": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "%",
+                    "tag_id": "LIC150201",
+                    "tag_description": "Liquid level in vapor-liquid separator (VLS)"
+                  },
+                  "FFE_1_VLS_temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI150201",
+                    "tag_description": "Temperature in evaporator stage 1"
+                  }
+                },
+                "unit_description": "DBAG_Falling Film Evaporator-1 performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_Falling Film Evaporator-2": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "FFE_2_VLS_level": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "%",
+                    "tag_id": "LIC150301",
+                    "tag_description": "Liquid level in vapor-liquid separator (VLS)"
+                  },
+                  "FFE_2_VLS_temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI150301",
+                    "tag_description": "Temperature in evaporator stage 2"
+                  }
+                },
+                "unit_description": "DBAG_Falling Film Evaporator-2 performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_Falling Film Evaporator-3": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "FFE_3_VLS_level": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "%",
+                    "tag_id": "LIC150401",
+                    "tag_description": "Liquid level in vapor-liquid separator (VLS)"
+                  },
+                  "FFE_3_VLS_temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI150401",
+                    "tag_description": "Temperature in evaporator stage 3"
+                  }
+                },
+                "unit_description": "DBAG_Falling Film Evaporator-3 performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_Falling Film Evaporator-4": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "FFE_4_VLS_level": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "%",
+                    "tag_id": "LIC150501",
+                    "tag_description": "Liquid level in vapor-liquid separator (VLS)"
+                  },
+                  "FFE_4_VLS_temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI150501",
+                    "tag_description": "Temperature in evaporator stage 4"
+                  }
+                },
+                "unit_description": "DBAG_Falling Film Evaporator-4 performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_Forced Circulation Evaporator-1": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "FC_1_Liquid_Inlet_Temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI150602",
+                    "tag_description": "Inlet temperature of liquid to forced circulation evaporator"
+                  },
+                  "FC_1_VLS_level": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "%",
+                    "tag_id": "LIC150601",
+                    "tag_description": "Liquid level in evaporator separator"
+                  },
+                  "FC_1_VLS_temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI150601",
+                    "tag_description": "Temperature in evaporator circulation loop"
+                  }
+                },
+                "unit_description": "DBAG_Forced Circulation Evaporator-1 performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_Forced Circulation Evaporator-2": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "FC_2_Liquid_Inlet_Temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI150702",
+                    "tag_description": "Inlet temperature of liquid to forced circulation evaporator"
+                  },
+                  "FC_2_VLS_level": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "%",
+                    "tag_id": "LIC150701",
+                    "tag_description": "Liquid level in evaporator separator"
+                  },
+                  "FC_2_VLS_temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI150701",
+                    "tag_description": "Temperature in evaporator circulation loop"
+                  }
+                },
+                "unit_description": "DBAG_Forced Circulation Evaporator-2 performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_Forced Circulation Evaporator-3": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "FC_3_Liquid_Inlet_Temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI150802",
+                    "tag_description": "Inlet temperature of liquid to forced circulation evaporator"
+                  },
+                  "FC_3_VLS_level": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "%",
+                    "tag_id": "LIC150801",
+                    "tag_description": "Liquid level in evaporator separator"
+                  },
+                  "FC_3_VLS_temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 100,
+                    "unit": "deg C",
+                    "tag_id": "TI150801",
+                    "tag_description": "Temperature in evaporator circulation loop"
+                  }
+                },
+                "unit_description": "DBAG_Forced Circulation Evaporator-3 performs a specific role in maintaining process conditions and operational stability."
+              },
+              "EID_EVOP_Opr_Man_FN_1": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/EID .EVOP. Opr.Man.(FN) (1).txt",
+                "document_description": "Operation manual for multi-effect evaporator system handling spent wash concentration."
+              },
+              "Distillery_Process": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/Distillery Process.txt",
+                "document_description": "Contains overall distillery operational procedures and process flow. Includes yeast propagation, fermentation, and stabilization steps. Focuses on maintaining product quality and process consistency."
+              }
+            },
+            "process_description": "Evaporation concentrates spent wash by removing water using heat. Multi-effect systems improve energy efficiency and reduce waste volume."
+          },
+          "DBAG_Distillation": {
+            "relationship": "HAS_PROCESS",
+            "children": {
+              "DBAG_RS": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "DBAG_DeGassifier Column": {
+                    "relationship": "HAS_UNIT",
+                    "children": {
+                      "Fermented_wash_flow": {
+                        "relationship": "HAS_PARAMETER",
+                        "min_value": 0,
+                        "max_value": 100,
+                        "unit": "m3/hr",
+                        "tag_id": "FIC140201",
+                        "tag_description": "Flow rate of fermented wash entering degassifier"
+                      },
+                      "DG_column_Top_Temp": {
+                        "relationship": "HAS_PARAMETER",
+                        "min_value": 0,
+                        "max_value": 100,
+                        "unit": "deg C",
+                        "tag_id": "TI140105",
+                        "tag_description": "Temperature at top of degassifier column"
+                      }
+                    },
+                    "unit_description": "Column enables phase separation using temperature and pressure differences. It supports purification and product quality control."
+                  },
+                  "DBAG_Analyser Column": {
+                    "relationship": "HAS_UNIT",
+                    "children": {
+                      "Alcohol_Scrubber_water_temp": {
+                        "relationship": "HAS_PARAMETER",
+                        "min_value": 0,
+                        "max_value": 100,
+                        "unit": "deg C",
+                        "tag_id": "TI140113",
+                        "tag_description": "Temperature of scrubber water used in alcohol recovery"
+                      },
+                      "Analyser_column_Bottom_Level": {
+                        "relationship": "HAS_PARAMETER",
+                        "min_value": 0,
+                        "max_value": 100,
+                        "unit": "%",
+                        "tag_id": "LI140101",
+                        "tag_description": "Bottom liquid level in analyser column"
+                      },
+                      "Analyser_Top_Temp": {
+                        "relationship": "HAS_PARAMETER",
+                        "min_value": 0,
+                        "max_value": 100,
+                        "unit": "deg C",
+                        "tag_id": "TI140103",
+                        "tag_description": "Temperature at top of analyser column"
+                      }
+                    },
+                    "unit_description": "Column enables phase separation using temperature and pressure differences. It supports purification and product quality control."
+                  },
+                  "DBAG_PreRectifier Column": {
+                    "relationship": "HAS_UNIT",
+                    "children": {
+                      "PRC_Feed_Temp": {
+                        "relationship": "HAS_PARAMETER",
+                        "min_value": 0,
+                        "max_value": 100,
+                        "unit": "deg C",
+                        "tag_id": "TI140310",
+                        "tag_description": "Feed temperature entering pre-rectifier column"
+                      },
+                      "Pre_Rectifier_column_top_temp": {
+                        "relationship": "HAS_PARAMETER",
+                        "min_value": 0,
+                        "max_value": 100,
+                        "unit": "deg C",
+                        "tag_id": "TI140307",
+                        "tag_description": "Temperature at top of pre-rectifier column"
+                      },
+                      "Pre_Rectifier_column_reflux_tank_Level": {
+                        "relationship": "HAS_PARAMETER",
+                        "min_value": 0,
+                        "max_value": 100,
+                        "unit": "%",
+                        "tag_id": "LIC140402",
+                        "tag_description": "Reflux tank level of pre-rectifier column"
+                      }
+                    },
+                    "unit_description": "Column enables phase separation using temperature and pressure differences. It supports purification and product quality control."
+                  }
+                },
+                "unit_description": "DBAG_RS performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_ENA": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "DBAG_Extractive Distillation Column": {
+                    "relationship": "HAS_UNIT",
+                    "children": {
+                      "DM_water_flow": {
+                        "relationship": "HAS_PARAMETER",
+                        "min_value": 0,
+                        "max_value": 100,
+                        "unit": "m3/hr",
+                        "tag_id": "FIC140502",
+                        "tag_description": "DM water flow used in extractive distillation"
+                      },
+                      "Extractive_Distillation_column_top_temp": {
+                        "relationship": "HAS_PARAMETER",
+                        "min_value": 0,
+                        "max_value": 100,
+                        "unit": "deg C",
+                        "tag_id": "TI140405",
+                        "tag_description": "Temperature at top of extractive distillation column"
+                      },
+                      "ED_bottom_level_percentage": {
+                        "relationship": "HAS_PARAMETER",
+                        "min_value": 0,
+                        "max_value": 100,
+                        "unit": "%",
+                        "tag_id": "LIC140401",
+                        "tag_description": "Bottom liquid level in extractive distillation column"
+                      }
+                    },
+                    "unit_description": "Column enables phase separation using temperature and pressure differences. It supports purification and product quality control."
+                  },
+                  "DBAG_Rectifier Column": {
+                    "relationship": "HAS_UNIT",
+                    "children": {
+                      "RC_feed_Inlet_PHE_Temp": {
+                        "relationship": "HAS_PARAMETER",
+                        "min_value": 0,
+                        "max_value": 100,
+                        "unit": "deg C",
+                        "tag_id": "TI140513",
+                        "tag_description": "Feed temperature entering rectifier column via heat exchanger"
+                      },
+                      "Rectifier_cum_Exhaust_Column_top_temp": {
+                        "relationship": "HAS_PARAMETER",
+                        "min_value": 0,
+                        "max_value": 100,
+                        "unit": "deg C",
+                        "tag_id": "TI140506",
+                        "tag_description": "Temperature at top of rectifier/exhaust column"
+                      },
+                      "Rectifier_cum_Exhaust_Column_reflux_flow": {
+                        "relationship": "HAS_PARAMETER",
+                        "min_value": 0,
+                        "max_value": 100,
+                        "unit": "m3/hr",
+                        "tag_id": "FI140504",
+                        "tag_description": "Reflux flow rate in rectifier column"
+                      }
+                    },
+                    "unit_description": "Column enables phase separation using temperature and pressure differences. It supports purification and product quality control."
+                  },
+                  "DBAG_Simmering Column": {
+                    "relationship": "HAS_UNIT",
+                    "children": {
+                      "ENA_Product_flow": {
+                        "relationship": "HAS_PARAMETER",
+                        "min_value": 0,
+                        "max_value": 100,
+                        "unit": "m3/hr",
+                        "tag_id": "FI140701",
+                        "tag_description": "ENA product flow rate"
+                      },
+                      "Simmering_Column_top_temp": {
+                        "relationship": "HAS_PARAMETER",
+                        "min_value": 0,
+                        "max_value": 100,
+                        "unit": "deg C",
+                        "tag_id": "TI140704",
+                        "tag_description": "Temperature at top of simmering column"
+                      },
+                      "Simmering_reflux": {
+                        "relationship": "HAS_PARAMETER",
+                        "min_value": 0,
+                        "max_value": 100,
+                        "unit": "m3/hr",
+                        "tag_id": "FI140702",
+                        "tag_description": "Reflux flow in simmering column"
+                      }
+                    },
+                    "unit_description": "Column enables phase separation using temperature and pressure differences. It supports purification and product quality control."
+                  },
+                  "DBAG_Recovery Column": {
+                    "relationship": "HAS_UNIT",
+                    "children": {
+                      "Recovery_column_top_temp": {
+                        "relationship": "HAS_PARAMETER",
+                        "min_value": 0,
+                        "max_value": 100,
+                        "unit": "deg C",
+                        "tag_id": "TI140608",
+                        "tag_description": "Temperature at top of recovery column"
+                      },
+                      "Recovery_column_bottom_temp": {
+                        "relationship": "HAS_PARAMETER",
+                        "min_value": 0,
+                        "max_value": 100,
+                        "unit": "deg C",
+                        "tag_id": "TI140601",
+                        "tag_description": "Temperature at bottom of recovery column"
+                      },
+                      "Recovery_reflux_tank_level": {
+                        "relationship": "HAS_PARAMETER",
+                        "min_value": 0,
+                        "max_value": 100,
+                        "unit": "%",
+                        "tag_id": "C140603",
+                        "tag_description": "Level in recovery column reflux tank"
+                      }
+                    },
+                    "unit_description": "Column enables phase separation using temperature and pressure differences. It supports purification and product quality control."
+                  }
+                },
+                "unit_description": "DBAG_ENA performs a specific role in maintaining process conditions and operational stability."
+              },
+              "EID_DIST_Opr_Man_FN": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/EID DIST.Opr.Man.(FN).txt",
+                "document_description": "Complete operation manual for distillation columns producing rectified spirit and ENA."
+              },
+              "Distillery_Process": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/Distillery Process.txt",
+                "document_description": "Dummy document description"
+              }
+            },
+            "process_description": "Distillation separates alcohol from fermented wash using multiple columns. It improves purity by exploiting boiling point differences and reflux control."
+          },
+          "DBAG_Boiler": {
+            "relationship": "HAS_PROCESS",
+            "children": {
+              "DBAG_Feed pump": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Feed_water_Economizer_inlet_temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 26.07,
+                    "max_value": 127.13,
+                    "unit": "deg C",
+                    "tag_id": "TI_102",
+                    "tag_description": "Inlet temperature of feed water entering the economizer"
+                  }
+                },
+                "unit_description": "DBAG_Feed pump performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_Economizer": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Feed_water_Economizer_outlet_temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 132.802,
+                    "max_value": 147.41,
+                    "unit": "deg C",
+                    "tag_id": "TI_103",
+                    "tag_description": "Outlet temperature of feed water leaving the economizer"
+                  }
+                },
+                "unit_description": "Economizer recovers heat from flue gases to preheat feed water. This improves boiler efficiency and reduces fuel consumption."
+              },
+              "DBAG_Super heater -1": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Main_steam_outlet_temperature_1": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 373.006,
+                    "max_value": 421.072,
+                    "unit": "deg C",
+                    "tag_id": "TI_211A",
+                    "tag_description": "Temperature of main steam at superheater outlet (sensor 1)"
+                  },
+                  "Main_steam_outlet_temperature_2": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 373.808,
+                    "max_value": 420.957,
+                    "unit": "deg C",
+                    "tag_id": "TI_211B",
+                    "tag_description": "Temperature of main steam at superheater outlet (sensor 2)"
+                  },
+                  "Steam_Temperature_at_attemptator_outlet": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 319.63,
+                    "max_value": 350.192,
+                    "unit": "deg C",
+                    "tag_id": "TI_204",
+                    "tag_description": "Steam temperature at attemperator outlet"
+                  },
+                  "Superheater_1_inlet_Temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 260.515,
+                    "max_value": 276.275,
+                    "unit": "deg C",
+                    "tag_id": "TI_202",
+                    "tag_description": "Inlet temperature of steam entering superheater stage 1"
+                  }
+                },
+                "unit_description": "DBAG_Super heater -1 performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_Steam drum": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Steam_drum_level_transmitter": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 47.746,
+                    "max_value": 50.186,
+                    "unit": "%",
+                    "tag_id": "LI_201A",
+                    "tag_description": "Water level inside the steam drum"
+                  },
+                  "Steam_drum_pressure": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 48.221,
+                    "max_value": 52.994,
+                    "unit": "kg/cm2",
+                    "tag_id": "PI201",
+                    "tag_description": "Pressure inside the steam drum"
+                  }
+                },
+                "unit_description": "Steam drum separates steam from water and maintains level balance. It ensures safe steam generation and prevents carryover."
+              },
+              "DBAG_Main Steam line": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Attemperator_": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 0.64,
+                    "unit": "deg C",
+                    "tag_id": "FI1000_1",
+                    "tag_description": "Flow/operation of attemperator (spray control system)"
+                  },
+                  "Boiler_Blow_down_flow_meter": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0,
+                    "max_value": 1.5,
+                    "unit": "m3/hr",
+                    "tag_id": "FI1001_1",
+                    "tag_description": "Flow rate of boiler blowdown water"
+                  },
+                  "Main_steam_flow_1": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 19993.44,
+                    "max_value": 23340.35,
+                    "unit": "TPH",
+                    "tag_id": "FI_211A",
+                    "tag_description": "Main steam flow rate (line 1)"
+                  },
+                  "Main_steam_flow_2": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 19988.15,
+                    "max_value": 23078.63,
+                    "unit": "TPH",
+                    "tag_id": "FI_211B",
+                    "tag_description": "Main steam flow rate (line 2)"
+                  },
+                  "Main_steam_outlet_line_pressure1": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 40.553,
+                    "max_value": 43.936,
+                    "unit": "kg/cm2",
+                    "tag_id": "PI_211A",
+                    "tag_description": "Pressure of main steam at outlet line (sensor 1)"
+                  },
+                  "Main_steam_outlet_line_pressure2": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 40.731,
+                    "max_value": 44.122,
+                    "unit": "kg/cm2",
+                    "tag_id": "PI_211B",
+                    "tag_description": "Pressure of main steam at outlet line (sensor 2)"
+                  },
+                  "Steam_flow_to_Deaerator": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 17.348,
+                    "max_value": 30.875,
+                    "unit": "TPH",
+                    "tag_id": "FI1002_1",
+                    "tag_description": "Steam flow supplied to deaerator"
+                  }
+                },
+                "unit_description": "DBAG_Main Steam line performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_Furnace": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Bed_temperature_Compartment_1": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 927.805,
+                    "max_value": 1009.157,
+                    "unit": "deg C",
+                    "tag_id": "TI_511A",
+                    "tag_description": "Bed temperature in furnace compartment 1"
+                  },
+                  "Bed_temperature_Compartment_2": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 925.752,
+                    "max_value": 1016.986,
+                    "unit": "deg C",
+                    "tag_id": "TI_512A",
+                    "tag_description": "Bed temperature in furnace compartment 2"
+                  },
+                  "Furnace_pressure_1": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 0.598,
+                    "max_value": 1.025,
+                    "unit": "kg/cm2",
+                    "tag_id": "PI_501A",
+                    "tag_description": "Furnace internal pressure (zone 1)"
+                  },
+                  "Furnace_pressure_2": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 1.381,
+                    "max_value": 2.494,
+                    "unit": "kg/cm2",
+                    "tag_id": "PI_501B",
+                    "tag_description": "Furnace internal pressure (zone 2)"
+                  },
+                  "Furnace_Temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 782.043,
+                    "max_value": 934.616,
+                    "unit": "deg C",
+                    "tag_id": "TI_501",
+                    "tag_description": "Overall furnace temperature"
+                  }
+                },
+                "unit_description": "Furnace burns fuel to generate heat for steam production. It maintains high combustion temperature and supports boiler efficiency."
+              },
+              "DBAG_FD fan": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "FD_air_flow": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 32.461,
+                    "max_value": 34.927,
+                    "unit": "m3/hr",
+                    "tag_id": "FI_401",
+                    "tag_description": "Forced draft air flow rate"
+                  },
+                  "FD_air_pressure_compartment_1": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 1072.51,
+                    "max_value": 1171.42,
+                    "unit": "kg/cm2",
+                    "tag_id": "PI_403",
+                    "tag_description": "FD air pressure in compartment 1"
+                  },
+                  "FD_air_pressure_compartment_2": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 1064.999,
+                    "max_value": 1172.568,
+                    "unit": "kg/cm2",
+                    "tag_id": "PI_404",
+                    "tag_description": "FD air pressure in compartment 2"
+                  }
+                },
+                "unit_description": "Fan supplies or extracts air/flue gas to maintain combustion and draft. It ensures proper airflow and pressure balance in the system."
+              },
+              "DBAG_SA fan": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "SA_air_flow": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 11.206,
+                    "max_value": 12.394,
+                    "unit": "m3/hr",
+                    "tag_id": "FIC_421",
+                    "tag_description": "Secondary air flow rate"
+                  },
+                  "SA_air_pressure": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 581.187,
+                    "max_value": 610.98,
+                    "unit": "kg/cm2",
+                    "tag_id": "PI_421",
+                    "tag_description": "Secondary air pressure"
+                  }
+                },
+                "unit_description": "Fan supplies or extracts air/flue gas to maintain combustion and draft. It ensures proper airflow and pressure balance in the system."
+              },
+              "DBAG_Super heater -2": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Flue_gas_pressure_at_SH_1_inlet": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": -1.5,
+                    "max_value": -0.144,
+                    "unit": "kg/cm2",
+                    "tag_id": "PI_503",
+                    "tag_description": "Flue gas pressure at superheater 1 inlet"
+                  },
+                  "Flue_gas_pressure_at_SH_2_inlet": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 1.305,
+                    "max_value": 6.982,
+                    "unit": "kg/cm2",
+                    "tag_id": "PI_502",
+                    "tag_description": "Flue gas pressure at superheater 2 inlet"
+                  },
+                  "Flue_gas_Temperature_at_SH_1_inlet": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 469.229,
+                    "max_value": 544.018,
+                    "unit": "deg C",
+                    "tag_id": "TI_503",
+                    "tag_description": "Flue gas temperature at superheater 1 inlet"
+                  },
+                  "Flue_gas_Temperature_at_SH_2_inlet": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 538.137,
+                    "max_value": 628.288,
+                    "unit": "deg C",
+                    "tag_id": "TI_502",
+                    "tag_description": "Flue gas temperature at superheater 2 inlet"
+                  }
+                },
+                "unit_description": "DBAG_Super heater -2 performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_Boiler_Evaporator": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Evaporator_2_temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 280.392,
+                    "max_value": 316.294,
+                    "unit": "deg C",
+                    "tag_id": "TI_505",
+                    "tag_description": "Temperature at evaporator section"
+                  },
+                  "Flue_gas_pressure_at_Evaporator_1_inlet": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": -1.025,
+                    "max_value": -4.722,
+                    "unit": "kg/cm2",
+                    "tag_id": "PI_504",
+                    "tag_description": "Flue gas pressure at evaporator 1 inlet"
+                  },
+                  "Flue_gas_pressure_at_Evaporator_2_inlet": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": -24.229,
+                    "max_value": -8.903,
+                    "unit": "kg/cm2",
+                    "tag_id": "PI_508",
+                    "tag_description": "Flue gas pressure at evaporator 2 inlet"
+                  },
+                  "Flue_gas_Temperature_at_Evaporator_1_inlet": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 393.178,
+                    "max_value": 455.934,
+                    "unit": "deg C",
+                    "tag_id": "TI_504",
+                    "tag_description": "Flue gas temperature at evaporator 1 inlet"
+                  },
+                  "Flue_gas_Temperature_at_Evaporator_3_inlet": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": -12.656,
+                    "max_value": -9.358,
+                    "unit": "deg C",
+                    "tag_id": "PI_511",
+                    "tag_description": "Flue gas temperature at evaporator 3 inlet"
+                  }
+                },
+                "unit_description": "DBAG_Boiler_Evaporator performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_Preseperator": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Preseperator_temp": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 188.097,
+                    "max_value": 216.433,
+                    "unit": "deg C",
+                    "tag_id": "TI_506",
+                    "tag_description": "Temperature at pre-separator"
+                  }
+                },
+                "unit_description": "DBAG_Preseperator performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_ID fan": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "ID_fan_suction_flue_gas_pressure": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": -235.413,
+                    "max_value": -172.471,
+                    "unit": "kg/cm2",
+                    "tag_id": "PI_507",
+                    "tag_description": "Flue gas pressure at ID fan suction"
+                  },
+                  "ID_fan_temperature": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 176.06,
+                    "max_value": 205.336,
+                    "unit": "deg C",
+                    "tag_id": "TI_507",
+                    "tag_description": "Temperature of ID fan"
+                  }
+                },
+                "unit_description": "Fan supplies or extracts air/flue gas to maintain combustion and draft. It ensures proper airflow and pressure balance in the system."
+              },
+              "DBAG_Air compressor": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Instrument_air_pressure": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 5.826,
+                    "max_value": 6.032,
+                    "unit": "kg/cm2",
+                    "tag_id": "PI_410",
+                    "tag_description": "Pressure of instrument air from compressor"
+                  }
+                },
+                "unit_description": "DBAG_Air compressor performs a specific role in maintaining process conditions and operational stability."
+              },
+              "DBAG_Spent wash tank": {
+                "relationship": "HAS_UNIT",
+                "children": {
+                  "Spent_was_Brix": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 41.8,
+                    "max_value": 55.2,
+                    "unit": "%",
+                    "tag_id": "AI_602",
+                    "tag_description": "Concentration (Brix) of spent wash"
+                  },
+                  "Totalizer_Spent_wash_flow": {
+                    "relationship": "HAS_PARAMETER",
+                    "min_value": 141.596,
+                    "max_value": 187.681,
+                    "unit": "m3/hr",
+                    "tag_id": "FI_602",
+                    "tag_description": "Totalized flow of spent wash"
+                  }
+                },
+                "unit_description": "Tank stores and stabilizes process fluids before further use. It helps maintain steady flow and operational buffering."
+              },
+              "Air_Emission_SOP": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/Air Emission-SOP.txt",
+                "document_description": "Provides SOP for maintaining clean air supply in process systems. Includes handling of gas cylinders and safe operational practices. Focuses on safety, inspection, and proper usage."
+              },
+              "28_OCP_for_coal_crusher": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/28-OCP for coal crusher.docx",
+                "document_description": "Covers startup and inspection of coal crusher system. Includes checks for gearbox, belts, hammers, and abnormal noise. Ensures smooth and safe crushing operation."
+              },
+              "28_OCP_for_coal_screen": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/28-OCP for coal screen.docx",
+                "document_description": "Describes inspection and maintenance of coal vibrating screen. Ensures proper screening, avoids blockages and equipment damage. Includes safety checks and reporting procedures."
+              },
+              "29_OCP_Boiler_Cold_Start_Up_Procedure": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/29_OCP-Boiler Cold Start Up Procedure.docx",
+                "document_description": "Covers full startup of boiler from cold shutdown condition. Includes inspection, fuel preparation, fluidization, and ignition steps. Ensures gradual heating and stable operation."
+              },
+              "30_OCP_BOiler_Hot_start_up_procedure": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/30_OCP-BOiler Hot start up procedure.docx",
+                "document_description": "Describes restarting boiler when it is already in hot condition. Includes pressure-temperature based steps and valve operations. Ensures quick yet safe return to normal operation."
+              },
+              "31_OCP_Boiler_bed_drain": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/31_OCP-Boiler bed drain.docx",
+                "document_description": "Provides procedure to drain excess bed material from the boiler. Maintains proper fluidization and pressure conditions in the furnace. Highlights safety precautions during high-temperature handling."
+              },
+              "31_OCP_Boiler_Start_up_during_Block_out": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/31_OCP-Boiler Start up during Block out.docx",
+                "document_description": "Explains boiler startup procedure during power failure conditions. Includes DG startup, restoring auxiliary systems, and stabilizing operations. Ensures safe and controlled recovery of the plant."
+              },
+              "32_OCP_Turbine_start_up_procedure": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/32_OCP-Turbine start up procedure.docx",
+                "document_description": "Covers the complete procedure for starting the turbine from cold condition. Includes checks for lubrication oil systems, pumps, compressors, and steam readiness. Focuses on safe warm-up and avoiding mechanical stress during startup."
+              },
+              "33_OCP_Boiler_chemical_dozing": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/33_OCP-Boiler chemical dozing.txt",
+                "document_description": "Describes handling and dosing of chemicals for boiler water treatment. Ensures prevention of scaling, corrosion, and operational inefficiencies. Includes safety precautions, PPE, and storage guidelines."
+              },
+              "33_OCP_Spent_wash_tainer_cleaning": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/33_OCP-Spent wash tainer cleaning.docx",
+                "document_description": "Details cleaning procedure of spent wash pump strainer. Ensures uninterrupted flow and prevents clogging or pump damage. Includes isolation, cleaning steps, and restart checks."
+              },
+              "Distillery_Process": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/Distillery Process.txt",
+                "document_description": "Contains overall distillery operational procedures and process flow. Includes yeast propagation, fermentation, and stabilization steps. Focuses on maintaining product quality and process consistency."
+              },
+              "TST_2030_TB0350131_C_3682_EID_PARRY_INDIA_LTD": {
+                "relationship": "HAS_DOCUMENT",
+                "path": "s3://eid-data-2026/knowledgebase/TST-2030 (TB0350131) C-3682 EID PARRY (INDIA) LTD.txt",
+                "document_description": "Comprehensive operation and maintenance manual for the turbine system. Includes installation, operation, safety, and troubleshooting guidelines. Acts as a reference for safe and efficient turbine operation."
+              }
+            },
+            "process_description": "Boiler generates high-pressure steam by burning fuel in the furnace. The steam is used across the plant for heating, evaporation, and power requirements."
+          }
+        }
+      }
+    }
+  }
+}

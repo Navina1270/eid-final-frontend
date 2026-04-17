@@ -1,0 +1,181 @@
+{
+  "plant": {
+    "name": "Plant",
+    "equipment": [
+      {
+        "id": "B01",
+        "name": "Boiler-01",
+        "issues": [
+          {
+            "issue": "High Steam Pressure",
+            "rule": "PT-001 > Setpoint + Δ",
+            "causes": [
+              {
+                "cause": "Excess Fuel Firing",
+                "checks": [
+                  {
+                    "condition": "Fuel Flow (FT-101) > Normal",
+                    "action": "Reduce fuel control valve opening"
+                  },
+                  {
+                    "condition": "Fuel valve position > 80%",
+                    "action": "Limit max valve opening / tune controller"
+                  },
+                  {
+                    "condition": "Fuel calorific value higher than standard",
+                    "action": "Adjust fuel-air ratio"
+                  }
+                ]
+              },
+              {
+                "cause": "Low Steam Demand",
+                "checks": [
+                  {
+                    "condition": "Steam Flow (FT-102) < Expected load",
+                    "action": "Reduce boiler load (firing rate)"
+                  },
+                  {
+                    "condition": "Downstream valve partially closed",
+                    "action": "Open steam distribution valve"
+                  },
+                  {
+                    "condition": "Process trip / shutdown",
+                    "action": "Divert steam to alternate header / vent"
+                  }
+                ]
+              },
+              {
+                "cause": "Pressure Controller Issue",
+                "checks": [
+                  {
+                    "condition": "PID output oscillating",
+                    "action": "Retune PID parameters"
+                  },
+                  {
+                    "condition": "Setpoint mismatch with demand",
+                    "action": "Correct setpoint"
+                  },
+                  {
+                    "condition": "Sensor (PT-001) calibration drift",
+                    "action": "Calibrate pressure transmitter"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "issue": "Low Drum Level",
+            "rule": "LT-301 < Low-Low Limit",
+            "causes": [
+              {
+                "cause": "Insufficient Feedwater",
+                "checks": [
+                  {
+                    "condition": "Feedwater Flow (FT-301) low",
+                    "action": "Increase pump speed"
+                  },
+                  {
+                    "condition": "Feedwater control valve < 30% open",
+                    "action": "Increase valve opening"
+                  },
+                  {
+                    "condition": "Pump discharge pressure low",
+                    "action": "Check pump health / switch standby pump"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "F01",
+        "name": "Fermentation",
+        "issues": [
+          {
+            "issue": "Low Alcohol Yield",
+            "rule": "Alcohol % < Target",
+            "causes": [
+              {
+                "cause": "Poor yeast activity",
+                "checks": [
+                  {
+                    "condition": "Yeast viability < threshold",
+                    "action": "Add fresh yeast culture"
+                  },
+                  {
+                    "condition": "Fermentation time exceeded",
+                    "action": "Optimize batch cycle time"
+                  },
+                  {
+                    "condition": "Contamination indicator high",
+                    "action": "Clean & sterilize fermenter"
+                  }
+                ]
+              },
+              {
+                "cause": "Suboptimal temperature",
+                "checks": [
+                  {
+                    "condition": "Temp (TT-101) < range",
+                    "action": "Increase heating"
+                  },
+                  {
+                    "condition": "Temp (TT-101) > range",
+                    "action": "Start cooling system"
+                  },
+                  {
+                    "condition": "Temp fluctuation high",
+                    "action": "Stabilize control loop"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "D01",
+        "name": "Distillation Column",
+        "issues": [
+          {
+            "issue": "Low Alcohol Purity",
+            "rule": "Purity < 95%",
+            "causes": [
+              {
+                "cause": "Reflux ratio low",
+                "checks": [
+                  {
+                    "condition": "Reflux flow (FT-201) low",
+                    "action": "Increase reflux rate"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "E01",
+        "name": "Evaporator",
+        "issues": [
+          {
+            "issue": "Low Evaporation Efficiency",
+            "rule": "Evaporation Rate < Target",
+            "causes": [
+              {
+                "cause": "Scaling / fouling",
+                "checks": [
+                  {
+                    "condition": "Heat transfer coefficient low",
+                    "action": "Perform cleaning (CIP)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
