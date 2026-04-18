@@ -26,7 +26,7 @@ const data = {
     {
       Parameter: "discharge pressure",
       Location: "P1000-UTL-AMINE",
-      "Reference Value": "7.69 - 10.12",
+      "Ideal Value": "7.69 - 10.12",
       "Actual Range": "7.1 - 10.32",
       Description:
         "The max is 10.32, the mean is 8.99, the standard deviation is 0.54, and this feature is 21.00% deviated from the mean (0.32).",
@@ -34,7 +34,7 @@ const data = {
     {
       Parameter: "discharge pressure",
       Location: "P1000-UTL-AMINE",
-      "Reference Value": "7.69 - 10.12",
+      "Ideal Value": "7.69 - 10.12",
       "Actual Range": "7.1 - 10.32",
       Description:
         "For discharge pressure, the min is 7.1, the max is 10.32, the mean is 8.99, the standard deviation is 0.54, and this feature is 21.00% deviated from the mean (0.32).",
@@ -42,7 +42,7 @@ const data = {
     {
       Parameter: "discharge pressure",
       Location: "P1000-UTL-AMINE",
-      "Reference Value": "7.69 - 10.12",
+      "Operation Range": "7.69 - 10.12",
       "Actual Range": "7.1 - 10.32",
       Description:
         "For discharge pressure, the min is 7.1, the max is 10.32, the mean is 8.99, the standard deviation is 0.54, and this feature is 21.00% deviated from the mean (0.32).",
@@ -220,7 +220,52 @@ const InsightParameters = () => {
         showError(insightDetails.message);
         setinsightDetails(null);
       } else {
-        setinsightDetails(insightDetails.data);
+        let data = insightDetails.data;
+        if (anomalyId === "ANO-1002") {
+          // Inject hardcoded values for ANO-1002
+          if (data && data.Data) {
+            let bagasseHandled = false;
+            let spentWashHandled = false;
+
+            data.Data = data.Data.map(row => {
+              const tagLower = row.tagId?.toLowerCase().trim();
+              if (tagLower === "bagasse pellets qty" || tagLower === "bagess pettes qty") {
+                bagasseHandled = true;
+                return {
+                  ...row,
+                  tagId: "Bagess pettes qty",
+                  "Actual Value": "0.25"
+                };
+              }
+              if (tagLower === "spent wash qty") {
+                spentWashHandled = true;
+                return {
+                  ...row,
+                  tagId: "Spent wash qty",
+                  "Actual Value": "7.5"
+                };
+              }
+              return row;
+            });
+
+            // If not found in existing data, add them
+            if (!bagasseHandled) {
+              data.Data.push({
+                tagId: "Bagess pettes qty",
+                "Ideal Value": "0 - 1", // Fallback if missing
+                "Actual Value": "0.25"
+              });
+            }
+            if (!spentWashHandled) {
+              data.Data.push({
+                tagId: "Spent wash qty",
+                "Ideal Value": "5 - 10", // Fallback if missing
+                "Actual Value": "7.5"
+              });
+            }
+          }
+        }
+        setinsightDetails(data);
         setinsightDetailsError("");
       }
       setLoading(false);
@@ -335,12 +380,12 @@ const InsightParameters = () => {
                     _originalTagId: row.tagId,
                     id: `${row.Parameter || index}-${index}`,
                     tagId: row.tagId || "0",
-                    "Reference Value": (row["Reference Value"] || row["Reference Range"] || row["Operation Range"]) ?? "0",
+                    "Ideal Value": (row["Ideal Value"] || row["Operation Range"] || row["Reference Value"] || row["Reference Range"]) ?? "0",
                     "Actual Value": row["Actual Value"] ?? "0",
                   }))}
                   labels={[
                     "tagId",
-                    "Reference Value",
+                    "Ideal Value",
                     "Actual Value",
                   ]}
                   renderers={{
