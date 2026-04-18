@@ -26,7 +26,7 @@ const data = {
     {
       Parameter: "discharge pressure",
       Location: "P1000-UTL-AMINE",
-      "Operation Range": "7.69 - 10.12",
+      "Reference Value": "7.69 - 10.12",
       "Actual Range": "7.1 - 10.32",
       Description:
         "The max is 10.32, the mean is 8.99, the standard deviation is 0.54, and this feature is 21.00% deviated from the mean (0.32).",
@@ -34,7 +34,7 @@ const data = {
     {
       Parameter: "discharge pressure",
       Location: "P1000-UTL-AMINE",
-      "Operation Range": "7.69 - 10.12",
+      "Reference Value": "7.69 - 10.12",
       "Actual Range": "7.1 - 10.32",
       Description:
         "For discharge pressure, the min is 7.1, the max is 10.32, the mean is 8.99, the standard deviation is 0.54, and this feature is 21.00% deviated from the mean (0.32).",
@@ -42,7 +42,7 @@ const data = {
     {
       Parameter: "discharge pressure",
       Location: "P1000-UTL-AMINE",
-      "Operation Range": "7.69 - 10.12",
+      "Reference Value": "7.69 - 10.12",
       "Actual Range": "7.1 - 10.32",
       Description:
         "For discharge pressure, the min is 7.1, the max is 10.32, the mean is 8.99, the standard deviation is 0.54, and this feature is 21.00% deviated from the mean (0.32).",
@@ -335,12 +335,12 @@ const InsightParameters = () => {
                     _originalTagId: row.tagId,
                     id: `${row.Parameter || index}-${index}`,
                     tagId: row.tagId || "0",
-                    "Operation Range": row["Operation Range"] ?? "0",
+                    "Reference Value": (row["Reference Value"] || row["Reference Range"] || row["Operation Range"]) ?? "0",
                     "Actual Value": row["Actual Value"] ?? "0",
                   }))}
                   labels={[
                     "tagId",
-                    "Operation Range",
+                    "Reference Value",
                     "Actual Value",
                   ]}
                   renderers={{
